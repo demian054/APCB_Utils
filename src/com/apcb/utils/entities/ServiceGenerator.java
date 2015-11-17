@@ -24,19 +24,21 @@ public class ServiceGenerator {
     
     
     public static <T> T ServiceGenerator(Class<T> ServiceName) throws Exception {
-        String filename = "services.properties";
+        //String filename = "services.properties";
+        String simpleServiceName = ServiceName.getSimpleName();
         try {
+            PropertiesReader prop = new PropertiesReader(simpleServiceName); 
         //servletContext.getResourceAsStream("/WEB-INF/myfile");
-            InputStream input = ServiceGenerator.class.getClassLoader().getResourceAsStream(filename);
+         /*   InputStream input = ServiceGenerator.class.getClassLoader().getResourceAsStream(filename);
             if(input==null){
                 throw new Exception("Archivo "+filename+" No encontrado");
             }
             Properties properties = new Properties();
-            properties.load(input);
-            URL url = new URL(properties.getProperty(new StringBuilder(ServiceName.getSimpleName()).append(".urlService").toString(),""));
+            properties.load(input);*/
+            URL url = new URL(prop.getProperty("urlService"));
             QName qname = new QName(
-                    properties.getProperty(new StringBuilder(ServiceName.getSimpleName()).append(".nameSpaceURI").toString(),""),
-                    properties.getProperty(new StringBuilder(ServiceName.getSimpleName()).append(".localPart").toString(),"")
+                    prop.getProperty("nameSpaceURI"),
+                    prop.getProperty("localPart")
                 );  
             Service service = Service.create(url, qname);
             return service.getPort(ServiceName);    
