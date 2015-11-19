@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import java.util.Properties;
+import java.util.logging.Level;
 import org.apache.log4j.Logger;
 
 
@@ -24,7 +25,6 @@ import org.apache.log4j.Logger;
  */
 public class PropertiesReader {
     private final static Logger log = Logger.getLogger(PropertiesReader.class);
-    private InputStream inputStream;
     private Properties prop;
     private String target;
       
@@ -32,48 +32,28 @@ public class PropertiesReader {
         prop = new Properties();
     }
 
-    /*public PropertiesReader(String propertyFileName, Class clase) {
-        prop = new Properties();
-        //this.getClass().getResourceAsStream(propertyFileName+".properties");
-         String propertyFilePath = new StringBuilder(System.getProperty("user.dir"))
-                    .append(File.separator).append(propertyFileName)
-                    .append(".properties").toString();
-         read(propertyFilePath, clase);
-    }*/
-    
     public PropertiesReader(String propFileName) throws IOException {
         prop = new Properties();       
-        inputStream = getClass().getClassLoader().getResourceAsStream(propFileName+".properties");
-        if (inputStream != null) {
-            prop.load(inputStream);
-            target = prop.getProperty("Target");
-            log.info("Target Selected "+target);
-        } else {
-            log.error("property file '" + propFileName + ".properties' not found in the classpath");
-        }  
+        addProperyFile(propFileName);
     }
     
-    /*private void read(String propertyFilePath, Class clase){
-	InputStream inputFile = null;
-	try {      
-            prop.load(clase.getClass().getClassLoader().getResourceAsStream("Config.properties"));
-            target = prop.getProperty("Target");
-            log.info("Target Selected "+target);
-	} catch (IOException ex) {
-            log.error("Error to Charge "+propertyFilePath);
-            ex.printStackTrace();
-        } finally{
-            if(inputFile!=null){
-                try {
-                        inputFile.close();
-                } catch (IOException e) {
-                        e.printStackTrace();
-                }
-            }
+    public void addProperyFile(String propFileName){
+        Properties prop = new Properties();
+        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(propFileName+".properties");
+        try {
+            if (inputStream != null) {
+                prop.load(inputStream);
+                target = prop.getProperty("Target");
+                log.info("Target Selected "+target);
+                this.prop.putAll(prop);
+            } else {
+                throw new IOException();
+            } 
+        } catch (IOException ex) {
+            log.error("property file '" + propFileName + ".properties' not found in the classpath");
         }
-    
-    }*/
-    
+    }
+        
     public String getProperty(String propertyName){
         return getProperty(propertyName, true);
     }
