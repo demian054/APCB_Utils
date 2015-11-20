@@ -17,7 +17,17 @@ public enum MessagesTypeEnum {
     
     
     //ERRORS
-    AplicationErrorNotHandler ("501", "Aplication error not Handler"),
+    Error_AplicationErrorNotHandler ("501", "Aplication error not Handler"),
+    
+    //Error acces to services
+    
+    ErrorAccess_Business            ("601", "Errot to access to service Business"),
+    ErrorAccess_TicketsHandler      ("602", "Errot to access to service TicketsHandler"), 
+    
+     //Error access to External services
+    
+    ErrorAccessExt_Kiu              ("701", "Errot to access to External service KIU"),
+    
     
     KnowMessage ("000", "Know Message");
     

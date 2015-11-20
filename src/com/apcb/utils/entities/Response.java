@@ -7,23 +7,31 @@
 package com.apcb.utils.entities;
 
 import com.google.gson.Gson;
+import java.util.List;
 
 /**
  *
  * @author Demian
  */
 public class Response {
-    private Gson gson;
     private Beam beam;
     private String sesionId;
     private Message message;
+    private List<Message> warninig;
 
     public Response() {
-        gson = new Gson();
     }
-    
-    
-    
+
+    /*
+    public <T> T getObjectBean() throws ClassNotFoundException{
+    return (T) new Gson().fromJson(beam.getObject(), Class.forName(beam.getObjectType()).getClass());  
+    }
+    public void setBeam(Object objectStr, Class objectType) {
+    Beam beam = new Beam();
+    beam.setObject(new Gson().toJson(objectStr));
+    beam.setObjectType(objectType.getName());
+    this.beam = beam;
+    }*/
     public Beam getBeam() {
         return beam;
     }
@@ -31,7 +39,7 @@ public class Response {
     public void setBeam(Beam beam) {
         this.beam = beam;
     }
-
+    
     public String getSesionId() {
         return sesionId;
     }
@@ -47,6 +55,15 @@ public class Response {
     public void setMessage(Message message) {
         this.message = message;
     }
+    
+    public List<Message> getWarninig() {
+        return warninig;
+    }
+
+    public void setWarninig(List<Message> warninig) {
+        this.warninig = warninig;
+    }
+    
 /*
     @Override
     public String toString() { 

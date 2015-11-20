@@ -6,7 +6,7 @@
 
 package com.apcb.utils.conection;
 
-import com.apcb.utils.entities.PropertiesReader;
+import com.apcb.utils.utils.PropertiesReader;
 import java.net.URL;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
@@ -25,10 +25,10 @@ public class ServiceGenerator {
         String simpleServiceName = ServiceName.getSimpleName();
         try {
             PropertiesReader prop = new PropertiesReader(simpleServiceName); 
-            URL url = new URL(prop.getProperty("urlService"));
+            URL url = new URL(prop.getProperty(simpleServiceName+".urlService"));
             QName qname = new QName(
-                    prop.getProperty("nameSpaceURI"),
-                    prop.getProperty("localPart")
+                    prop.getProperty(simpleServiceName+".nameSpaceURI"),
+                    prop.getProperty(simpleServiceName+".localPart")
                 );  
             Service service = Service.create(url, qname);
             return service.getPort(ServiceName);    

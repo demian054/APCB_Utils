@@ -8,8 +8,8 @@ package com.apcb.utils.ticketsHandler.entities;
 
 import com.apcb.utils.ticketsHandler.Enums.CabinTypeEnum;
 import com.apcb.utils.ticketsHandler.Enums.LocationEnum;
+import com.apcb.utils.utils.ArrayUtils;
 import java.util.Calendar;
-import java.util.List;
 
 /**
  *
@@ -22,12 +22,9 @@ public class Itinerary {
     LocationEnum destinationLocationCode;
     CabinTypeEnum Cabin;
     boolean DirectFlightsOnly;
-  
-    List<Passanger> passagers; 
-    
-    List<ItineraryOption> destinationOption;
-    
-
+ 
+    Passanger[] passangers;  
+    ItineraryOption[] destinationOption;
 
     public Calendar getDepartureDateTime() {
         return departureDateTime;
@@ -60,13 +57,37 @@ public class Itinerary {
     public void setCabin(CabinTypeEnum Cabin) {
         this.Cabin = Cabin;
     }
-
-    public List<Passanger> getPassagers() {
-        return passagers;
+    
+    public Passanger[] getPassangers() {
+        return passangers;
+    }
+    
+    public void putPassangers(Passanger[] passangers) {
+        this.passangers =  ArrayUtils.concat(this.passangers, passangers);
+    }
+    
+    public void putPassangers(Passanger passangers) {
+        this.passangers =  ArrayUtils.concat(this.passangers, passangers);
     }
 
-    public void setPassagers(List<Passanger> passagers) {
-        this.passagers = passagers;
+    public void setPassangers(Passanger[] passangers) {
+        this.passangers = passangers;
+    }
+    
+    public void putDestinationOption(ItineraryOption[] destinationOption) {
+        this.destinationOption =  ArrayUtils.concat(this.destinationOption, destinationOption);
+    }
+    
+    public void putDestinationOption(ItineraryOption destinationOption) {
+        this.destinationOption =  ArrayUtils.concat(this.destinationOption, destinationOption);
+    }
+
+    public ItineraryOption[] getDestinationOption() {
+        return destinationOption;
+    }
+
+    public void setDestinationOption(ItineraryOption[] destinationOption) {
+        this.destinationOption = destinationOption;
     }
 
     public boolean isDirectFlightsOnly() {
@@ -76,15 +97,6 @@ public class Itinerary {
     public void setDirectFlightsOnly(boolean DirectFlightsOnly) {
         this.DirectFlightsOnly = DirectFlightsOnly;
     }
-
-    public List<ItineraryOption> getDestinationOption() {
-        return destinationOption;
-    }
-
-    public void setDestinationOption(List<ItineraryOption> destinationOption) {
-        this.destinationOption = destinationOption;
-    }
-    
-    
-    
+       
+ 
 }

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package com.apcb.utils.entities;
+package com.apcb.utils.utils;
 
 
 import java.io.File;
@@ -44,7 +44,7 @@ public class PropertiesReader {
             if (inputStream != null) {
                 prop.load(inputStream);
                 target = prop.getProperty("Target");
-                log.info("Target Selected "+target);
+                log.info(propFileName+" Target Selected "+target);
                 this.prop.putAll(prop);
             } else {
                 throw new IOException();

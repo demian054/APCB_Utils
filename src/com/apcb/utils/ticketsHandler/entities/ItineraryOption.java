@@ -8,10 +8,9 @@ package com.apcb.utils.ticketsHandler.entities;
 
 import com.apcb.utils.ticketsHandler.Enums.CabinTypeEnum;
 import com.apcb.utils.ticketsHandler.Enums.LocationEnum;
-import com.apcb.utils.ticketsHandler.Enums.MealCodeEnum;
+import com.apcb.utils.utils.ArrayUtils;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+
 
 /**
  *
@@ -30,7 +29,7 @@ public class ItineraryOption {
     String AirEquipType;
     String CompanyShortName;
     Boolean MealServices;
-    List<String> MealCode; 
+    String[] MealCode; 
 
     public LocationEnum getArrivalLocationCode() {
         return arrivalLocationCode;
@@ -120,13 +119,21 @@ public class ItineraryOption {
         this.MealServices = MealServices;
     }
 
-    public List<String> getMealCode() {
+    public String[] getMealCode() {
+        if (MealCode==null) MealCode = new String[0];
         return MealCode;
     }
-
-    public void setMealCode(List<String> MealCode) {
-        this.MealCode = MealCode;
+    
+    public void putMealCode(String[] MealCode) {
+        this.MealCode =  ArrayUtils.concat(this.MealCode, MealCode);
     }
     
-    
+    public void putMealCode(String MealCode) {
+        this.MealCode =  ArrayUtils.concat(this.MealCode, MealCode);
+    }
+
+    public void setMealCode(String[] MealCode) {
+        this.MealCode = MealCode;
+    }
+  
 }

@@ -8,7 +8,7 @@ package com.apcb.utils.conection;
 
 
 
-import com.apcb.utils.entities.PropertiesReader;
+import com.apcb.utils.utils.PropertiesReader;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
