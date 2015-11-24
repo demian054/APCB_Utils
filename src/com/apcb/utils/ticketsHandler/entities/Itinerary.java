@@ -63,11 +63,15 @@ public class Itinerary {
     }
     
     public void putPassangers(Passanger[] passangers) {
-        this.passangers =  ArrayUtils.concat(this.passangers, passangers);
+        this.passangers =  ArrayUtils.concat(this.passangers, passangers, Passanger.class);
     }
     
     public void putPassangers(Passanger passangers) {
-        this.passangers =  ArrayUtils.concat(this.passangers, passangers);
+        try {
+           this.passangers = ArrayUtils.concat(this.passangers, passangers, Passanger.class); 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }       
     }
 
     public void setPassangers(Passanger[] passangers) {
@@ -75,11 +79,19 @@ public class Itinerary {
     }
     
     public void putDestinationOption(ItineraryOption[] destinationOption) {
-        this.destinationOption =  ArrayUtils.concat(this.destinationOption, destinationOption);
+         try {
+            this.destinationOption =  ArrayUtils.concat(this.destinationOption, destinationOption, ItineraryOption.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
     }
     
     public void putDestinationOption(ItineraryOption destinationOption) {
-        this.destinationOption =  ArrayUtils.concat(this.destinationOption, destinationOption);
+         try {
+            this.destinationOption =  ArrayUtils.concat(this.destinationOption, destinationOption, ItineraryOption.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
     }
 
     public ItineraryOption[] getDestinationOption() {

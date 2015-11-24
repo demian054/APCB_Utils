@@ -15,26 +15,26 @@ import java.util.Arrays;
  */
 public class ArrayUtils {
     
-    public static <T> T[] concat(T[] first, T second) {
-        T[] arraySecond = (T[]) new Object[1];
+    public static <T> T[] concat(T[] first, T second, Class<T> clase) throws Exception {
+        T[] arraySecond = (T[]) Array.newInstance(clase, 1);
         arraySecond[0] = second;
-        return concat(first,arraySecond);
+        return concat(first,arraySecond, clase);
     }
     
     
-    public static <T> T[] concat(T[] first, T[] second) {
-        if (first==null) first = (T[]) new Object[0];
-        if (second==null) second = (T[]) new Object[0];
+    public static <T> T[] concat(T[] first, T[] second, Class<T> clase) {
+        if (first==null) first = (T[]) Array.newInstance(clase, 0);
+        if (second==null) second = (T[]) Array.newInstance(clase, 0);
         T[] result = Arrays.copyOf(first, first.length + second.length);
         System.arraycopy(second, 0, result, first.length, second.length);
         return result;
     }
     
-    public static <T> T[] concatAll(T[] first, T[]... rest) {
-        if (first==null) first = (T[]) new Object[0];  
+    public static <T> T[] concatAll(Class<T> clase, T[] first, T[]... rest) {
+        if (first==null) first = (T[]) Array.newInstance(clase, 1); 
         int totalLength = first.length;
         for (T[] array : rest) {
-          if (array==null) array = (T[]) new Object[0];
+          if (array==null) array = (T[]) Array.newInstance(clase, 1);
           totalLength += array.length;
         }
         T[] result = Arrays.copyOf(first, totalLength);

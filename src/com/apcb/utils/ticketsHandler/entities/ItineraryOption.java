@@ -125,11 +125,21 @@ public class ItineraryOption {
     }
     
     public void putMealCode(String[] MealCode) {
-        this.MealCode =  ArrayUtils.concat(this.MealCode, MealCode);
+        try {
+            this.MealCode =  ArrayUtils.concat(this.MealCode, MealCode, String.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
     
     public void putMealCode(String MealCode) {
-        this.MealCode =  ArrayUtils.concat(this.MealCode, MealCode);
+        try {
+            this.MealCode =  ArrayUtils.concat(this.MealCode, MealCode, String.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
     }
 
     public void setMealCode(String[] MealCode) {
