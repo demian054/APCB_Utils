@@ -6,7 +6,7 @@
 
 package com.apcb.utils.entities;
 
-import com.apcb.utils.ticketsHandler.entities.Itinerary;
+import com.apcb.utils.ticketsHandler.entities.Travel;
 import com.google.gson.Gson;
 import java.util.List;
 

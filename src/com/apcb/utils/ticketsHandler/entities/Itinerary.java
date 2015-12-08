@@ -6,7 +6,6 @@
 
 package com.apcb.utils.ticketsHandler.entities;
 
-import com.apcb.utils.ticketsHandler.Enums.CabinTypeEnum;
 import com.apcb.utils.ticketsHandler.Enums.LocationEnum;
 import com.apcb.utils.utils.ArrayUtils;
 import java.util.Calendar;
@@ -16,15 +15,11 @@ import java.util.Calendar;
  * @author Demian
  */
 public class Itinerary {
-    
-    Calendar departureDateTime;
-    LocationEnum originLocationCode;    
-    LocationEnum destinationLocationCode;
-    CabinTypeEnum Cabin;
-    boolean DirectFlightsOnly;
- 
-    Passanger[] passangers;  
-    ItineraryOption[] destinationOption;
+    private Calendar departureDateTime;
+    private LocationEnum originLocationCode;    
+    private LocationEnum destinationLocationCode;
+
+    private ItineraryOption[] itineraryOption;
 
     public Calendar getDepartureDateTime() {
         return departureDateTime;
@@ -50,65 +45,21 @@ public class Itinerary {
         this.destinationLocationCode = destinationLocationCode;
     }
 
-    public CabinTypeEnum getCabin() {
-        return Cabin;
-    }
-
-    public void setCabin(CabinTypeEnum Cabin) {
-        this.Cabin = Cabin;
-    }
-    
-    public Passanger[] getPassangers() {
-        return passangers;
-    }
-    
-    public void putPassangers(Passanger[] passangers) {
-        this.passangers =  ArrayUtils.concat(this.passangers, passangers, Passanger.class);
-    }
-    
-    public void putPassangers(Passanger passangers) {
-        try {
-           this.passangers = ArrayUtils.concat(this.passangers, passangers, Passanger.class); 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }       
-    }
-
-    public void setPassangers(Passanger[] passangers) {
-        this.passangers = passangers;
-    }
-    
-    public void putDestinationOption(ItineraryOption[] destinationOption) {
+    public void putItineraryOption(ItineraryOption[] itineraryOption) {
          try {
-            this.destinationOption =  ArrayUtils.concat(this.destinationOption, destinationOption, ItineraryOption.class);
+            this.itineraryOption =  ArrayUtils.concat(this.itineraryOption, itineraryOption, ItineraryOption.class);
         } catch (Exception e) {
             e.printStackTrace();
         } 
     }
     
-    public void putDestinationOption(ItineraryOption destinationOption) {
+    public void putItineraryOption(ItineraryOption itineraryOption) {
          try {
-            this.destinationOption =  ArrayUtils.concat(this.destinationOption, destinationOption, ItineraryOption.class);
+            this.itineraryOption =  ArrayUtils.concat(this.itineraryOption, itineraryOption, ItineraryOption.class);
         } catch (Exception e) {
             e.printStackTrace();
         } 
     }
-
-    public ItineraryOption[] getDestinationOption() {
-        return destinationOption;
-    }
-
-    public void setDestinationOption(ItineraryOption[] destinationOption) {
-        this.destinationOption = destinationOption;
-    }
-
-    public boolean isDirectFlightsOnly() {
-        return DirectFlightsOnly;
-    }
-
-    public void setDirectFlightsOnly(boolean DirectFlightsOnly) {
-        this.DirectFlightsOnly = DirectFlightsOnly;
-    }
-       
- 
+    
+    
 }
