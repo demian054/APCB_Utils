@@ -60,6 +60,16 @@ public class Itinerary {
             e.printStackTrace();
         } 
     }
+
+    public ItineraryOption[] getItineraryOption() {
+        return itineraryOption;
+    }
+
+    public void setItineraryOption(ItineraryOption[] itineraryOption) {
+        this.itineraryOption = itineraryOption;
+    }
+    
+    
     
     
 }

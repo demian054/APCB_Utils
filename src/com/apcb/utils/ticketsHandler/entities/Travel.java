@@ -7,9 +7,8 @@
 package com.apcb.utils.ticketsHandler.entities;
 
 import com.apcb.utils.ticketsHandler.Enums.CabinTypeEnum;
-import com.apcb.utils.ticketsHandler.Enums.LocationEnum;
+import com.apcb.utils.ticketsHandler.Enums.ISOCurrencyEnum;
 import com.apcb.utils.utils.ArrayUtils;
-import java.util.Calendar;
 
 /**
  *
@@ -20,9 +19,12 @@ public class Travel {
 
     CabinTypeEnum Cabin;
     boolean DirectFlightsOnly;
-    Passanger[] passangers;  
-    
+    Passanger[] passangers; 
     Itinerary[] itinerary; 
+    
+    ISOCurrencyEnum Currency;
+    
+    
 
     public CabinTypeEnum getCabin() {
         return Cabin;
@@ -82,6 +84,14 @@ public class Travel {
         } catch (Exception e) {
             e.printStackTrace();
         } 
+    }
+
+    public ISOCurrencyEnum getCurrency() {
+        return Currency;
+    }
+
+    public void setCurrency(ISOCurrencyEnum Currency) {
+        this.Currency = Currency;
     }
 
  

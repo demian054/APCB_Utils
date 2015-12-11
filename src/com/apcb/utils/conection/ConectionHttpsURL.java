@@ -35,7 +35,10 @@ public class ConectionHttpsURL {
                 int responseCode = 0;
                 String responseMsg = "";
                 
-                if (prop.getProperty("ConectKiu",false).equalsIgnoreCase("true")){
+                if (prop.getProperty("ConectKiu",false).equalsIgnoreCase("false")){
+                    log.info("Simulate Answer To Kiu " );
+                    responseMsg = prop.getProperty("SimulateResponseMsg", false);
+                } else {
  
                     URL obj = new URL(server);
                     HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
@@ -63,8 +66,6 @@ public class ConectionHttpsURL {
                     }
                     in.close();
                     responseMsg = response.toString();
-                } else {
-                    return prop.getProperty("SimulateResponseMsg", false);
                 }
                 log.info("Sending 'POST' request to URL : " + server);
 		log.info("Post parameters : " + urlParameters);

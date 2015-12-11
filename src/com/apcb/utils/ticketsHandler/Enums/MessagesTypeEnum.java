@@ -19,6 +19,9 @@ public enum MessagesTypeEnum {
     //ERRORS
     Error_AplicationErrorNotHandler ("501", "Aplication error not Handler"),
     
+    //VALIDATION ERRORS
+    ErrorValidate_DateFormatIncorrect ("801", "Error Validate DateFormat Incorrect"),
+    
     //Error acces to services
     
     ErrorAccess_Business            ("601", "Errot to access to service Business"),
