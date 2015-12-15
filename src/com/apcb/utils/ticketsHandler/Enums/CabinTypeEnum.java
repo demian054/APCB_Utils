@@ -12,22 +12,25 @@ package com.apcb.utils.ticketsHandler.Enums;
  */
 public enum CabinTypeEnum {
     
-    Business ("BUS","Business"), 
-    Cockpit ("COC","Cockpit"),
-    Economy ("ECO","Economy"),
-    First ("FIR","First"),
-    PremiumBusiness ("PRB","PremiumBusiness"),
-    PremiumEconomy ("PRE","PremiumEconomy");
+    Business ("BUS","Business","B"), 
+    Cockpit ("COC","Cockpit","H"), 
+    Economy ("ECO","Economy","Y"), 
+    First ("FIR","First","N"), 
+    PremiumBusiness ("PRB","PremiumBusiness","B"), 
+    PremiumEconomy ("PRE","PremiumEconomy","B");
  
-    private final String code; 
+    private final String code;
+    private final String bookingCode;
     private final String description; 
  
-    CabinTypeEnum (String code, String description) { 
+    CabinTypeEnum (String code, String description, String bookingCode) { 
         this.code = code;
         this.description = description;
+        this.bookingCode = bookingCode;
     }
     
     public String getCode() { return code; }
     public String getDescription() { return description; }
+    public String getBookingCode() { return bookingCode; }
        
 }

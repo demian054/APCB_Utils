@@ -64,7 +64,7 @@ public class PropertiesReader {
         }
         String resp = prop.getProperty(propertyName);
         if (resp==null || resp.isEmpty()){
-            System.err.println("Error to Charge propertyName "+target+propertyName);
+            System.err.println("Error to Charge propertyName "+propertyName);
             return "";
         }
         return resp;

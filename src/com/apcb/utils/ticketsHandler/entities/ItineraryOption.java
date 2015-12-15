@@ -145,5 +145,5 @@ public class ItineraryOption {
     public void setMealCode(String[] MealCode) {
         this.MealCode = MealCode;
     }
-  
+
 }

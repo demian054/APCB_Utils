@@ -36,6 +36,15 @@ public enum ISOCurrencyEnum {
         return ISOCurrencyEnum.KNOW.getDescription();
     }
     
+    public static String getCodeByDescription(String description){
+        for (ISOCurrencyEnum iSOCurrencyEnum: ISOCurrencyEnum.values()){
+            if (iSOCurrencyEnum.getDescription().equalsIgnoreCase(description)){
+                return iSOCurrencyEnum.getCode();
+            } 
+        }
+        return ISOCountryEnum.KNOW.getDescription();
+    }
+    
     public static boolean isValid(ISOCurrencyEnum iSOCurrencyEnum){
         return iSOCurrencyEnum!=null && ISOCurrencyEnum.getDescriptionByCode(iSOCurrencyEnum.getDescription()).equals(ISOCurrencyEnum.KNOW.getDescription());
     }

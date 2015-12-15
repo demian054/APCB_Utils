@@ -12,7 +12,7 @@ package com.apcb.utils.ticketsHandler.Enums;
  */
 public enum ISOCountryEnum {
     
-    VENEZUELA ("VEN","Venezuela"),
+    VENEZUELA ("VE","Venezuela"),
     KNOW ("KNOW","Know Country");
     private final String code; 
     private final String description; 
@@ -26,9 +26,18 @@ public enum ISOCountryEnum {
     public String getDescription() { return description; }
        
     public static String getDescriptionByCode(String code){
-        for (ISOCountryEnum iSOCurrencyEnum: ISOCountryEnum.values()){
-            if (iSOCurrencyEnum.getCode().equalsIgnoreCase(code)){
-                return iSOCurrencyEnum.getDescription();
+        for (ISOCountryEnum iSOCountryEnum: ISOCountryEnum.values()){
+            if (iSOCountryEnum.getCode().equalsIgnoreCase(code)){
+                return iSOCountryEnum.getDescription();
+            } 
+        }
+        return ISOCountryEnum.KNOW.getDescription();
+    }
+    
+    public static String getCodeByDescription(String description){
+        for (ISOCountryEnum iSOCountryEnum: ISOCountryEnum.values()){
+            if (iSOCountryEnum.getDescription().equalsIgnoreCase(description)){
+                return iSOCountryEnum.getCode();
             } 
         }
         return ISOCountryEnum.KNOW.getDescription();
