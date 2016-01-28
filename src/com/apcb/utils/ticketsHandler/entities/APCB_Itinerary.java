@@ -14,12 +14,12 @@ import java.util.Calendar;
  *
  * @author Demian
  */
-public class Itinerary {
+public class APCB_Itinerary {
     private Calendar departureDateTime;
     private LocationEnum originLocationCode;    
     private LocationEnum destinationLocationCode;
 
-    private ItineraryOption[] itineraryOption;
+    private APCB_ItineraryOption[] itineraryOption;
 
     public Calendar getDepartureDateTime() {
         return departureDateTime;
@@ -45,27 +45,27 @@ public class Itinerary {
         this.destinationLocationCode = destinationLocationCode;
     }
 
-    public void putItineraryOption(ItineraryOption[] itineraryOption) {
+    public void putItineraryOption(APCB_ItineraryOption[] itineraryOption) {
          try {
-            this.itineraryOption =  ArrayUtils.concat(this.itineraryOption, itineraryOption, ItineraryOption.class);
+            this.itineraryOption =  ArrayUtils.concat(this.itineraryOption, itineraryOption, APCB_ItineraryOption.class);
         } catch (Exception e) {
             e.printStackTrace();
         } 
     }
     
-    public void putItineraryOption(ItineraryOption itineraryOption) {
+    public void putItineraryOption(APCB_ItineraryOption itineraryOption) {
          try {
-            this.itineraryOption =  ArrayUtils.concat(this.itineraryOption, itineraryOption, ItineraryOption.class);
+            this.itineraryOption =  ArrayUtils.concat(this.itineraryOption, itineraryOption, APCB_ItineraryOption.class);
         } catch (Exception e) {
             e.printStackTrace();
         } 
     }
 
-    public ItineraryOption[] getItineraryOption() {
+    public APCB_ItineraryOption[] getItineraryOption() {
         return itineraryOption;
     }
 
-    public void setItineraryOption(ItineraryOption[] itineraryOption) {
+    public void setItineraryOption(APCB_ItineraryOption[] itineraryOption) {
         this.itineraryOption = itineraryOption;
     }
     

@@ -12,9 +12,9 @@ package com.apcb.utils.ticketsHandler.Enums;
  */
 public enum PassangerTypeEnum {
     
-    ADT ("ADT","Adults"), 
-    CNN ("CNN","Children"),
-    INF ("INF","Infants");
+    Adulto ("ADT","Adults"), 
+    Niño ("CNN","Children"),
+    Infante ("INF","Infants");
 
  
     private final String code; 

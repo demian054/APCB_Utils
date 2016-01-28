@@ -88,8 +88,8 @@ public class ConectionHttpsURL {
 		con.setRequestProperty("User-Agent", USER_AGENT);
 
 		int responseCode = con.getResponseCode();
-		log.debug("\nSending 'GET' request to URL : " + url);
-		log.debug("Response Code : " + responseCode);
+		log.info("\nSending 'GET' request to URL : " + url);
+		log.info("Response Code : " + responseCode);
 
 		BufferedReader in = new BufferedReader(
 		        new InputStreamReader(con.getInputStream()));
@@ -102,7 +102,7 @@ public class ConectionHttpsURL {
 		in.close();
 
 		//print result
-		log.debug(response.toString());
+		log.info(response.toString());
 
 	}
 

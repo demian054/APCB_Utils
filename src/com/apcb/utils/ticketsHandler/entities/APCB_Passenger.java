@@ -12,9 +12,10 @@ import com.apcb.utils.ticketsHandler.Enums.PassangerTypeEnum;
  *
  * @author Demian
  */
-public class Passanger {
+public class APCB_Passenger {
     PassangerTypeEnum passangerType;
     int PassangerQuantity;
+    APCB_Cost cost;
 
     public PassangerTypeEnum getPassangerType() {
         return passangerType;

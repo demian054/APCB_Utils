@@ -29,6 +29,15 @@ public enum CabinTypeEnum {
         this.bookingCode = bookingCode;
     }
     
+    public static CabinTypeEnum getByCode(String code){
+        for (CabinTypeEnum cabinTypeEnum:CabinTypeEnum.values()){
+            if (cabinTypeEnum.getCode().equals(code)){
+                return cabinTypeEnum;
+            }
+        }
+        return null;
+    }
+    
     public String getCode() { return code; }
     public String getDescription() { return description; }
     public String getBookingCode() { return bookingCode; }

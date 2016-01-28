@@ -30,6 +30,15 @@ public enum LocationEnum {
         this.description = description;
     }
     
+    public static LocationEnum getByCode(String code){
+        for (LocationEnum cocationEnum:LocationEnum.values()){
+            if (cocationEnum.getCode().equals(code)){
+                return cocationEnum;
+            }
+        }
+        return null;
+    }
+    
     public String getCode() { return code; }
     public String getDescription() { return description; }
        

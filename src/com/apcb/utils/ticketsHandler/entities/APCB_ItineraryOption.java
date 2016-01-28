@@ -16,7 +16,7 @@ import java.util.Calendar;
  *
  * @author Demian
  */
-public class ItineraryOption {
+public class APCB_ItineraryOption {
 
     LocationEnum arrivalLocationCode;    
     LocationEnum DepartureLocationCode;
