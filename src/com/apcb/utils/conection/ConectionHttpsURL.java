@@ -31,19 +31,32 @@ public class ConectionHttpsURL {
         	
 	// HTTP POST request
 	public String sendPost(String urlParameters) throws Exception {
-		String server = prop.getProperty("Server");
+            return send(urlParameters, "POST");
+	}
+        
+        // HTTP GET request (en desuso)
+	private String sendGet(String urlParameters) throws Exception {
+             return send(urlParameters, "GET");
+	}
+        
+        private String sendDelete(String urlParameters) throws Exception {
+             return send(urlParameters, "DELETE");
+	}
+        
+        private String send(String urlParameters, String requestMethod) throws Exception {
+            String server = prop.getProperty("Server");
                 int responseCode = 0;
-                String responseMsg = "";
+                String responseMsg;
                 
-                if (prop.getProperty("ConectKiu",false).equalsIgnoreCase("false")){
-                    log.info("Simulate Answer To Kiu " );
+                if (prop.getProperty("Simulate",false).equalsIgnoreCase("false")){
+                    log.info("Simulate Answer" );
                     responseMsg = prop.getProperty("SimulateResponseMsg", false);
                 } else {
  
                     URL obj = new URL(server);
                     HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
-                    con.setRequestMethod("POST");
+                    con.setRequestMethod(requestMethod);
                     con.setRequestProperty("User-Agent", USER_AGENT);
                     con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
@@ -67,43 +80,11 @@ public class ConectionHttpsURL {
                     in.close();
                     responseMsg = response.toString();
                 }
-                log.info("Sending 'POST' request to URL : " + server);
+                log.info("Sending '"+requestMethod+"' request to URL : " + server);
 		log.info("Post parameters : " + urlParameters);
 		log.info("Response Code : " + responseCode);
 		return responseMsg;
-	}
         
-        // HTTP GET request (en desuso)
-	private void sendGet() throws Exception {
-               
-		String url = "http://www.google.com/search?q=mkyong";
-		
-		URL obj = new URL(url);
-		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-
-		// optional default is GET
-		con.setRequestMethod("GET");
-
-		//add request header
-		con.setRequestProperty("User-Agent", USER_AGENT);
-
-		int responseCode = con.getResponseCode();
-		log.info("\nSending 'GET' request to URL : " + url);
-		log.info("Response Code : " + responseCode);
-
-		BufferedReader in = new BufferedReader(
-		        new InputStreamReader(con.getInputStream()));
-		String inputLine;
-		StringBuffer response = new StringBuffer();
-
-		while ((inputLine = in.readLine()) != null) {
-			response.append(inputLine);
-		}
-		in.close();
-
-		//print result
-		log.info(response.toString());
-
-	}
+        }
 
 }
