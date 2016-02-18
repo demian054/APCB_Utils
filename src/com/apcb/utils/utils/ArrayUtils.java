@@ -7,7 +7,10 @@
 package com.apcb.utils.utils;
 
 import java.lang.reflect.Array;
+import java.lang.reflect.Field;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -45,5 +48,28 @@ public class ArrayUtils {
         }
         return result;
     }
-    
+    /*
+    public static <T> T findElement(T[] array, Class<T> clase, String fieldName, Object fieldValue) {
+        try {
+            for (T element:array){
+               
+                Field field = clase.getDeclaredField(fieldName);
+                field.setAccessible(true);
+                if (field.get(fieldValue)!=null){
+                    String valueToFind = field.get(fieldValue).toString();
+                                        
+                }
+            }
+        
+        } catch (IllegalArgumentException | NoSuchFieldException  | SecurityException | IllegalAccessException ex) {
+            Logger.getLogger(ArrayUtils.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+       T result = (T) new Object();
+       return result;
+               
+    }
+    */
 }

@@ -6,8 +6,8 @@
 
 package com.apcb.utils.ticketsHandler.entities;
 
-import com.apcb.utils.ticketsHandler.Enums.CabinTypeEnum;
-import com.apcb.utils.ticketsHandler.Enums.ISOCurrencyEnum;
+import com.apcb.utils.ticketsHandler.enums.CabinTypeEnum;
+import com.apcb.utils.ticketsHandler.enums.ISOCurrencyEnum;
 import com.apcb.utils.utils.ArrayUtils;
 
 /**
@@ -23,6 +23,7 @@ public class APCB_Travel {
     APCB_Itinerary[] itinerary; 
     
     ISOCurrencyEnum Currency;
+    
     
     
 
@@ -93,8 +94,5 @@ public class APCB_Travel {
     public void setCurrency(ISOCurrencyEnum Currency) {
         this.Currency = Currency;
     }
-
- 
-       
  
 }

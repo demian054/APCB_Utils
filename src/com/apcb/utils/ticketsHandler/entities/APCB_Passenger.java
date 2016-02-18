@@ -6,7 +6,7 @@
 
 package com.apcb.utils.ticketsHandler.entities;
 
-import com.apcb.utils.ticketsHandler.Enums.PassangerTypeEnum;
+import com.apcb.utils.ticketsHandler.enums.PassangerTypeEnum;
 
 /**
  *
@@ -15,7 +15,7 @@ import com.apcb.utils.ticketsHandler.Enums.PassangerTypeEnum;
 public class APCB_Passenger {
     PassangerTypeEnum passangerType;
     int PassangerQuantity;
-    APCB_Cost cost;
+    APCB_Cost detailCost;
 
     public PassangerTypeEnum getPassangerType() {
         return passangerType;
@@ -31,6 +31,14 @@ public class APCB_Passenger {
 
     public void setPassangerQuantity(int PassangerQuantity) {
         this.PassangerQuantity = PassangerQuantity;
+    }
+
+    public APCB_Cost getDetailCost() {
+        return detailCost;
+    }
+
+    public void setDetailCost(APCB_Cost detailCost) {
+        this.detailCost = detailCost;
     }
     
     

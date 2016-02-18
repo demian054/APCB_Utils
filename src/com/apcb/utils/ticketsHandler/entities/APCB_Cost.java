@@ -6,7 +6,7 @@
 
 package com.apcb.utils.ticketsHandler.entities;
 
-import com.apcb.utils.ticketsHandler.Enums.ISOCurrencyEnum;
+import com.apcb.utils.ticketsHandler.enums.ISOCurrencyEnum;
 import java.util.List;
 
 /**
@@ -17,5 +17,31 @@ public class APCB_Cost {
     private double totalAmount;
     private String currencyCode;
     private List<APCB_Tax> taxes; 
+
+    public double getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(double totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public String getCurrencyCode() {
+        return currencyCode;
+    }
+
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
+    }
+
+    public List<APCB_Tax> getTaxes() {
+        return taxes;
+    }
+
+    public void setTaxes(List<APCB_Tax> taxes) {
+        this.taxes = taxes;
+    }
+    
+    
     
 }

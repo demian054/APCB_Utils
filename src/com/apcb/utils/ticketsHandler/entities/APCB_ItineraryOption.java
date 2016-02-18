@@ -6,8 +6,8 @@
 
 package com.apcb.utils.ticketsHandler.entities;
 
-import com.apcb.utils.ticketsHandler.Enums.CabinTypeEnum;
-import com.apcb.utils.ticketsHandler.Enums.LocationEnum;
+import com.apcb.utils.ticketsHandler.enums.CabinTypeEnum;
+import com.apcb.utils.ticketsHandler.enums.LocationEnum;
 import com.apcb.utils.utils.ArrayUtils;
 import java.util.Calendar;
 
@@ -30,6 +30,7 @@ public class APCB_ItineraryOption {
     String CompanyShortName;
     Boolean MealServices;
     String[] MealCode; 
+    APCB_Cost totalCost;
 
     public LocationEnum getArrivalLocationCode() {
         return arrivalLocationCode;
@@ -145,5 +146,14 @@ public class APCB_ItineraryOption {
     public void setMealCode(String[] MealCode) {
         this.MealCode = MealCode;
     }
+
+    public APCB_Cost getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(APCB_Cost totalCost) {
+        this.totalCost = totalCost;
+    }
+    
 
 }

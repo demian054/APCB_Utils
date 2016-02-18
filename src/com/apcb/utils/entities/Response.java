@@ -6,6 +6,8 @@
 
 package com.apcb.utils.entities;
 
+import com.apcb.utils.paymentHandler.entities.PayMainResponse;
+import com.apcb.utils.ticketsHandler.enums.MessagesTypeEnum;
 import com.google.gson.Gson;
 import java.util.List;
 
@@ -18,20 +20,12 @@ public class Response {
     private String sesionId;
     private Message message;
     private List<Message> warninig;
+    private PayMainResponse payMainResponse;
 
     public Response() {
+        message = new Message(MessagesTypeEnum.Ok);
     }
 
-    /*
-    public <T> T getObjectBean() throws ClassNotFoundException{
-    return (T) new Gson().fromJson(beam.getObject(), Class.forName(beam.getObjectType()).getClass());  
-    }
-    public void setBeam(Object objectStr, Class objectType) {
-    Beam beam = new Beam();
-    beam.setObject(new Gson().toJson(objectStr));
-    beam.setObjectType(objectType.getName());
-    this.beam = beam;
-    }*/
     public Beam getBeam() {
         return beam;
     }
@@ -63,18 +57,15 @@ public class Response {
     public void setWarninig(List<Message> warninig) {
         this.warninig = warninig;
     }
-    
-/*
-    @Override
-    public String toString() { 
-        return gson.toJson(this);
+
+    public PayMainResponse getPayMainResponse() {
+        return payMainResponse;
+    }
+
+    public void setPayMainResponse(PayMainResponse payMainResponse) {
+        this.payMainResponse = payMainResponse;
     }
     
-    public void fromString(String strResponse) { 
-        Response response = gson.fromJson(strResponse, this.getClass());
-        this.beam = response.getBeam();
-        this.sesionId = response.getSesionId();
-        this.message = response.getMessage();
-    }
- */
+    
+ 
 }

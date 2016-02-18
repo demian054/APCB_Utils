@@ -6,7 +6,7 @@
 
 package com.apcb.utils.ticketsHandler.entities;
 
-import com.apcb.utils.ticketsHandler.Enums.LocationEnum;
+import com.apcb.utils.ticketsHandler.enums.LocationEnum;
 import com.apcb.utils.utils.ArrayUtils;
 import java.util.Calendar;
 
@@ -68,8 +68,6 @@ public class APCB_Itinerary {
     public void setItineraryOption(APCB_ItineraryOption[] itineraryOption) {
         this.itineraryOption = itineraryOption;
     }
-    
-    
-    
+  
     
 }

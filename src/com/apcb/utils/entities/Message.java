@@ -6,7 +6,7 @@
 
 package com.apcb.utils.entities;
 
-import com.apcb.utils.ticketsHandler.Enums.MessagesTypeEnum;
+import com.apcb.utils.ticketsHandler.enums.MessagesTypeEnum;
 
 /**
  *
@@ -22,6 +22,11 @@ public class Message {
     public Message(MessagesTypeEnum MessagesType) {
         this.msgCode = MessagesType.getCode();
         this.msgDesc = MessagesType.getDescription();   
+    }
+    
+    public Message(String code, String description) {
+        this.msgCode = code;
+        this.msgDesc = description;   
     }
     
     public String getMsgCode() {

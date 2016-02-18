@@ -8,6 +8,7 @@ package com.apcb.utils.conection;
 
 
 
+import com.apcb.utils.enums.RequestMethodEnum;
 import com.apcb.utils.utils.PropertiesReader;
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -31,60 +32,63 @@ public class ConectionHttpsURL {
         	
 	// HTTP POST request
 	public String sendPost(String urlParameters) throws Exception {
-            return send(urlParameters, "POST");
+            return send(urlParameters, RequestMethodEnum.Post);
 	}
         
         // HTTP GET request (en desuso)
-	private String sendGet(String urlParameters) throws Exception {
-             return send(urlParameters, "GET");
+	public String sendGet(String urlParameters) throws Exception {
+             return send(urlParameters, RequestMethodEnum.Get);
 	}
         
-        private String sendDelete(String urlParameters) throws Exception {
-             return send(urlParameters, "DELETE");
+        public String sendDelete(String urlParameters) throws Exception {
+             return send(urlParameters, RequestMethodEnum.Delete);
 	}
         
-        private String send(String urlParameters, String requestMethod) throws Exception {
+        public String send(String urlParameters, RequestMethodEnum requestMethod) throws Exception {
             String server = prop.getProperty("Server");
-                int responseCode = 0;
-                String responseMsg;
-                
-                if (prop.getProperty("Simulate",false).equalsIgnoreCase("false")){
-                    log.info("Simulate Answer" );
-                    responseMsg = prop.getProperty("SimulateResponseMsg", false);
-                } else {
- 
-                    URL obj = new URL(server);
-                    HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
+            if (prop.getProperty("Method",false)!=null && !prop.getProperty("Method",false).isEmpty()){
+                server += prop.getProperty("Method",false);
+            }
+            int responseCode = 0;
+            String responseMsg;
 
-                    con.setRequestMethod(requestMethod);
-                    con.setRequestProperty("User-Agent", USER_AGENT);
-                    con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
+            if (prop.getProperty("Simulate",false).equalsIgnoreCase("false")){
+                log.info("Simulate Answer" );
+                responseMsg = prop.getProperty("SimulateResponseMsg", false);
+            } else {
 
-                    con.setDoOutput(true);
+                URL obj = new URL(server);
+                HttpsURLConnection con = (HttpsURLConnection) obj.openConnection();
 
-                    DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-                    wr.writeBytes(urlParameters);
-                    wr.flush();
-                    wr.close();
+                con.setRequestMethod(requestMethod.getDescription());
+                con.setRequestProperty("User-Agent", USER_AGENT);
+                con.setRequestProperty("Accept-Language", "en-US,en;q=0.5");
 
-                    responseCode = con.getResponseCode();
+                con.setDoOutput(true);
 
-                    BufferedReader in = new BufferedReader(
-                    new InputStreamReader(con.getInputStream()));
-                    String inputLine;
-                    StringBuilder response = new StringBuilder();
+                DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+                wr.writeBytes(urlParameters);
+                wr.flush();
+                wr.close();
 
-                    while ((inputLine = in.readLine()) != null) {
-                            response.append(inputLine);
-                    }
-                    in.close();
-                    responseMsg = response.toString();
+                responseCode = con.getResponseCode();
+
+                BufferedReader in = new BufferedReader(
+                new InputStreamReader(con.getInputStream()));
+                String inputLine;
+                StringBuilder response = new StringBuilder();
+
+                while ((inputLine = in.readLine()) != null) {
+                        response.append(inputLine);
                 }
-                log.info("Sending '"+requestMethod+"' request to URL : " + server);
-		log.info("Post parameters : " + urlParameters);
-		log.info("Response Code : " + responseCode);
-		return responseMsg;
-        
+                in.close();
+                responseMsg = response.toString();
+            }
+            log.info("Sending '"+requestMethod+"' request to URL : " + server);
+            log.info("Post parameters : " + urlParameters);
+            log.info("Response Code : " + responseCode);
+            return responseMsg;
+
         }
 
 }
