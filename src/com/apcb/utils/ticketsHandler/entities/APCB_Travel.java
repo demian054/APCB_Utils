@@ -16,17 +16,23 @@ import com.apcb.utils.utils.ArrayUtils;
  */
 public class APCB_Travel {
 
-
+    Integer transactionId;
     CabinTypeEnum Cabin;
     boolean DirectFlightsOnly;
     APCB_Passenger[] passangers; 
-    APCB_Itinerary[] itinerary; 
+    APCB_Itinerary[] itinerary;
+    String bookingReferenceID;
     
     ISOCurrencyEnum Currency;
-    
-    
-    
 
+    public Integer getTransactionId() {
+        return transactionId;
+    }
+
+    public void setTransactionId(Integer transactionId) {
+        this.transactionId = transactionId;
+    }
+    
     public CabinTypeEnum getCabin() {
         return Cabin;
     }
@@ -94,5 +100,15 @@ public class APCB_Travel {
     public void setCurrency(ISOCurrencyEnum Currency) {
         this.Currency = Currency;
     }
+
+    public String getBookingReferenceID() {
+        return bookingReferenceID;
+    }
+
+    public void setBookingReferenceID(String bookingReferenceID) {
+        this.bookingReferenceID = bookingReferenceID;
+    }
+    
+    
  
 }

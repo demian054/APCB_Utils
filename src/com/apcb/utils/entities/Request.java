@@ -6,7 +6,7 @@
 
 package com.apcb.utils.entities;
 
-import com.apcb.utils.paymentHandler.entities.PayMainRequest;
+import com.apcb.utils.paymentHandler.entities.APCB_PayMain;
 import com.apcb.utils.ticketsHandler.entities.APCB_Travel;
 import com.google.gson.Gson;
 import java.util.List;
@@ -17,11 +17,11 @@ import java.util.List;
  */
 public class Request {
 
-    private Beam beam;
+    private APCB_Travel travelInfo;
     private String sesionId;
     private Message message;
     private Message[] warninig;
-    private PayMainRequest payMainRequest;
+    private APCB_PayMain payMainInfo;
 
     public Request() {}
     
@@ -29,12 +29,20 @@ public class Request {
         fromString(strRequest);
     }
 
-    public Beam getBeam() {
-        return beam;
+    public APCB_Travel getTravelInfo() {
+        return travelInfo;
     }
 
-    public void setBeam(Beam beam) {
-        this.beam = beam;
+    public void setTravelInfo(APCB_Travel travelInfo) {
+        this.travelInfo = travelInfo;
+    }
+
+    public APCB_PayMain getPayMainInfo() {
+        return payMainInfo;
+    }
+
+    public void setPayMainInfo(APCB_PayMain payMainInfo) {
+        this.payMainInfo = payMainInfo;
     }
 
     public Message[] getWarninig() {
@@ -61,22 +69,13 @@ public class Request {
         this.message = message;
     }
 
-    public PayMainRequest getPayMainRequest() {
-        return payMainRequest;
-    }
-
-    public void setPayMainRequest(PayMainRequest payMainRequest) {
-        this.payMainRequest = payMainRequest;
-    }
-
    
     public void fromString(String strRequest) { 
         Request request = new Gson().fromJson(strRequest, this.getClass());
-        this.beam = request.getBeam();
+        this.travelInfo = request.getTravelInfo();
         this.sesionId = request.getSesionId();
         this.message = request.getMessage();
-        this.payMainRequest = request.getPayMainRequest();
-        
+        this.payMainInfo = request.getPayMainInfo();       
     }
         
 }

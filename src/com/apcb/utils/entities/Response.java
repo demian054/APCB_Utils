@@ -6,7 +6,8 @@
 
 package com.apcb.utils.entities;
 
-import com.apcb.utils.paymentHandler.entities.PayMainResponse;
+import com.apcb.utils.paymentHandler.entities.APCB_PayMain;
+import com.apcb.utils.ticketsHandler.entities.APCB_Travel;
 import com.apcb.utils.ticketsHandler.enums.MessagesTypeEnum;
 import com.google.gson.Gson;
 import java.util.List;
@@ -16,24 +17,32 @@ import java.util.List;
  * @author Demian
  */
 public class Response {
-    private Beam beam;
+    private APCB_Travel travelInfo;
     private String sesionId;
     private Message message;
     private List<Message> warninig;
-    private PayMainResponse payMainResponse;
+    private APCB_PayMain payMainInfo;
+
+    public APCB_Travel getTravelInfo() {
+        return travelInfo;
+    }
+
+    public void setTravelInfo(APCB_Travel travelInfo) {
+        this.travelInfo = travelInfo;
+    }
+
+    public APCB_PayMain getPayMainInfo() {
+        return payMainInfo;
+    }
+
+    public void setPayMainInfo(APCB_PayMain payMainInfo) {
+        this.payMainInfo = payMainInfo;
+    }
 
     public Response() {
         message = new Message(MessagesTypeEnum.Ok);
     }
 
-    public Beam getBeam() {
-        return beam;
-    }
-
-    public void setBeam(Beam beam) {
-        this.beam = beam;
-    }
-    
     public String getSesionId() {
         return sesionId;
     }
@@ -58,14 +67,5 @@ public class Response {
         this.warninig = warninig;
     }
 
-    public PayMainResponse getPayMainResponse() {
-        return payMainResponse;
-    }
-
-    public void setPayMainResponse(PayMainResponse payMainResponse) {
-        this.payMainResponse = payMainResponse;
-    }
-    
-    
  
 }

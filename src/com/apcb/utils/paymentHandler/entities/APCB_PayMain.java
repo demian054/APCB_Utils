@@ -20,7 +20,7 @@ import java.util.logging.Logger;
  *
  * @author Demian
  */
-public class PayMainRequest {
+public class APCB_PayMain {
     private String KeyId;// (Requerido): Llave generada desde InstaPago.
     private String PublicKeyId; // (Requerido): Llave compartida (Enviada por correo electrónico al crear la cuenta en el portal de InstaPago)
     private Double Amount;// (Requerido): Monto a Debitar, utilizando punto “.” como separador decimal. Por ejemplo: 200.00.
@@ -39,9 +39,9 @@ public class PayMainRequest {
     private String ZipCode; // (Opcional): Código Postal asociada a la tarjeta, Utilizada por algunos bancos para mayor seguridad.
     private String State; // (Opcional): Estado o provincia asociada a la tarjeta, Utilizada por algunos bancos para mayor seguridad.
 
-    public PayMainRequest() {}
+    public APCB_PayMain() {}
     
-    public PayMainRequest(String strRequest) {
+    public APCB_PayMain(String strRequest) {
         fromString(strRequest);
     }
     
@@ -177,7 +177,7 @@ public class PayMainRequest {
         StringBuilder retBuilder = new StringBuilder("");
         //InstaPagoMainRequest.class.
                 
-        Field[] fields = PayMainRequest.class.getDeclaredFields();
+        Field[] fields = APCB_PayMain.class.getDeclaredFields();
         //System.out.printf("%d fields:%n", fields.length);
         for (Field field : fields) {
              try {
@@ -196,14 +196,14 @@ public class PayMainRequest {
                     retBuilder.append("&");
                  }
             } catch (IllegalArgumentException | IllegalAccessException ex) {
-                Logger.getLogger(PayMainRequest.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(APCB_PayMain.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         return retBuilder.toString();
     }
     
      public void fromString(String strRequest) { 
-        PayMainRequest request = new Gson().fromJson(strRequest, this.getClass());
+        APCB_PayMain request = new Gson().fromJson(strRequest, this.getClass());
         this.KeyId = request.getKeyId();
         this.PublicKeyId = request.getPublicKeyId();
         this.Amount = request.getAmount();
@@ -221,5 +221,81 @@ public class PayMainRequest {
         this.ZipCode = request.getZipCode();
         this.State = request.getState();
     }
+     
+    private boolean success; 
+    private String message; 
+    private String id; 
+    private String code; 
+    private String reference; 
+    private String voucher; 
+    private String sequence; 
+    private String approval; 
+
+    public boolean isSuccess() {
+        return success;
+    }
+
+    public void setSuccess(boolean success) {
+        this.success = success;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
+    public String getReference() {
+        return reference;
+    }
+
+    public void setReference(String reference) {
+        this.reference = reference;
+    }
+
+    public String getVoucher() {
+        return voucher;
+    }
+
+    public void setVoucher(String voucher) {
+        this.voucher = voucher;
+    }
+
+    public String getSequence() {
+        return sequence;
+    }
+
+    public void setSequence(String sequence) {
+        this.sequence = sequence;
+    }
+
+    public String getApproval() {
+        return approval;
+    }
+
+    public void setApproval(String approval) {
+        this.approval = approval;
+    }
+     
+     
+     
     
 }
