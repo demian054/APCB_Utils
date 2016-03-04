@@ -21,10 +21,12 @@ public class APCB_Travel {
     boolean DirectFlightsOnly;
     APCB_Passenger[] passangers; 
     APCB_Itinerary[] itinerary;
-    String bookingReferenceID;
-    
     ISOCurrencyEnum Currency;
-
+    
+    String bookingReferenceID;
+    String ticketNumber;
+    Integer TicketTimeLimit;
+            
     public Integer getTransactionId() {
         return transactionId;
     }
@@ -108,7 +110,21 @@ public class APCB_Travel {
     public void setBookingReferenceID(String bookingReferenceID) {
         this.bookingReferenceID = bookingReferenceID;
     }
-    
-    
+
+    public String getTicketNumber() {
+        return ticketNumber;
+    }
+
+    public void setTicketNumber(String ticketNumber) {
+        this.ticketNumber = ticketNumber;
+    }
+
+    public Integer getTicketTimeLimit() {
+        return TicketTimeLimit;
+    }
+
+    public void setTicketTimeLimit(Integer TicketTimeLimit) {
+        this.TicketTimeLimit = TicketTimeLimit;
+    }
  
 }

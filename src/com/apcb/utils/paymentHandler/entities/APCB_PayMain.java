@@ -8,6 +8,7 @@ package com.apcb.utils.paymentHandler.entities;
 
 
 import com.apcb.utils.entities.Request;
+import com.apcb.utils.paymentHandler.enums.PaymentTypeEnum;
 import com.apcb.utils.paymentHandler.enums.StatusIdEnum;
 import com.google.gson.Gson;
 import java.lang.reflect.Field;
@@ -27,18 +28,22 @@ public class APCB_PayMain {
     private String Description;// (Requerido): Cadena de caracteres con la descripción de la operación.
     private String CardHolder;// (Requerido): Nombre del Tarjeta habiente.
     private Integer CardHolderID;// (Requerido): Cédula del Tarjeta habiente.
-    private long CardNumber;// (Requerido): Numero de la tarjeta de crédito, sin espacios ni separadores.
+    private Long CardNumber;// (Requerido): Numero de la tarjeta de crédito, sin espacios ni separadores.
     private Integer CVC;// (Requerido): Código secreto de la Tarjeta de crédito.
     private String ExpirationDate;// (Requerido): Fecha de expiración de la tarjeta en el formato mostrado en la misma MM/YYYY. Por Ejemplo: 10/2014.
     private StatusIdEnum StatusId;// (Requerido): Estatus en el que se creará la transacción.
     private String IP; // (Requerido): Dirección IP del cliente que genera la solicitud del pago.
     
+    private PaymentTypeEnum PaymentType;
     private Integer OrderNumber; // (Opcional): Numero de orden del pago según el comercio.
     private String Address; // (Opcional): Dirección asociada a la tarjeta, Utilizada por algunos bancos para mayor seguridad.
     private String City; // (Opcional): Ciudad asociada a la tarjeta, Utilizada por algunos bancos para mayor seguridad.
     private String ZipCode; // (Opcional): Código Postal asociada a la tarjeta, Utilizada por algunos bancos para mayor seguridad.
     private String State; // (Opcional): Estado o provincia asociada a la tarjeta, Utilizada por algunos bancos para mayor seguridad.
 
+    private Double SubTotalAmount;
+    private Double TaxesAmount;
+    
     public APCB_PayMain() {}
     
     public APCB_PayMain(String strRequest) {
@@ -93,11 +98,11 @@ public class APCB_PayMain {
         this.CardHolderID = CardHolderID;
     }
 
-    public long getCardNumber() {
+    public Long getCardNumber() {
         return CardNumber;
     }
 
-    public void setCardNumber(long CardNumber) {
+    public void setCardNumber(Long CardNumber) {
         this.CardNumber = CardNumber;
     }
 
@@ -172,6 +177,16 @@ public class APCB_PayMain {
     public void setState(String State) {
         this.State = State;
     }
+
+    public PaymentTypeEnum getPaymentType() {
+        return PaymentType;
+    }
+
+    public void setPaymentType(PaymentTypeEnum PaymentType) {
+        this.PaymentType = PaymentType;
+    }
+    
+    
     
     public String toString(){
         StringBuilder retBuilder = new StringBuilder("");
@@ -190,6 +205,8 @@ public class APCB_PayMain {
                         retBuilder.append(((String)field.get(this)).replace(" ", "+")); 
                     } else if (field.getType()==StatusIdEnum.class){
                          retBuilder.append(((StatusIdEnum)field.get(this)).getCode()); 
+                    } else if (field.getType()==PaymentTypeEnum.class){
+                         retBuilder.append(((PaymentTypeEnum)field.get(this)).getCode()); 
                     } else {
                          retBuilder.append(field.get(this)); 
                     }
@@ -293,6 +310,22 @@ public class APCB_PayMain {
 
     public void setApproval(String approval) {
         this.approval = approval;
+    }
+
+    public Double getSubTotalAmount() {
+        return SubTotalAmount;
+    }
+
+    public void setSubTotalAmount(Double SubTotalAmount) {
+        this.SubTotalAmount = SubTotalAmount;
+    }
+
+    public Double getTaxesAmount() {
+        return TaxesAmount;
+    }
+
+    public void setTaxesAmount(Double TaxesAmount) {
+        this.TaxesAmount = TaxesAmount;
     }
      
      
