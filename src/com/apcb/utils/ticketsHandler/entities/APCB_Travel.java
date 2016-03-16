@@ -23,8 +23,10 @@ public class APCB_Travel {
     APCB_Itinerary[] itinerary;
     ISOCurrencyEnum Currency;
     
+    
     String bookingReferenceID;
     String ticketNumber;
+    String ticket;
     Integer TicketTimeLimit;
             
     public Integer getTransactionId() {
@@ -126,5 +128,15 @@ public class APCB_Travel {
     public void setTicketTimeLimit(Integer TicketTimeLimit) {
         this.TicketTimeLimit = TicketTimeLimit;
     }
+
+    public String getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(String ticket) {
+        this.ticket = ticket;
+    }
+    
+    
  
 }

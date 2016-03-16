@@ -6,9 +6,13 @@
 
 package com.apcb.utils.utils;
 
+import com.apcb.utils.ticketsHandler.entities.APCB_Passenger;
+import com.apcb.utils.ticketsHandler.entities.APCB_PassengerDetail;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -48,28 +52,44 @@ public class ArrayUtils {
         }
         return result;
     }
-    /*
-    public static <T> T findElement(T[] array, Class<T> clase, String fieldName, Object fieldValue) {
-        try {
-            for (T element:array){
-               
-                Field field = clase.getDeclaredField(fieldName);
-                field.setAccessible(true);
-                if (field.get(fieldValue)!=null){
-                    String valueToFind = field.get(fieldValue).toString();
-                                        
-                }
+    
+    public static <T> T[] delete(T[] array, T toEliminate, Class<T> clase) {
+        T[] result = (T[]) Array.newInstance(clase, array.length-1); 
+        int deleted = 0; 
+        for (int i = 0; i < array.length; i++) {
+            if (array[i].equals(toEliminate)){
+                deleted++;
+            } else {
+                result[i-deleted] = array[i];
             }
+        }
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        Integer[] arreglo = new Integer[5];
+        arreglo[0] = 1;
+        arreglo[1] = 2;
+        arreglo[2] = 3;
+        arreglo[3] = 4;
+        arreglo[4] = 5;
         
-        } catch (IllegalArgumentException | NoSuchFieldException  | SecurityException | IllegalAccessException ex) {
-            Logger.getLogger(ArrayUtils.class.getName()).log(Level.SEVERE, null, ex);
+        arreglo = delete(arreglo, arreglo[2], Integer.class);
+        for (Integer integer : arreglo) {
+          System.out.println(integer);  
         }
         
+        List<APCB_PassengerDetail> passengerDetailADT = new ArrayList<APCB_PassengerDetail>();
+        passengerDetailADT.add(new APCB_PassengerDetail());
+        passengerDetailADT.add(new APCB_PassengerDetail());
+        passengerDetailADT.add(new APCB_PassengerDetail());
         
         
-       T result = (T) new Object();
-       return result;
-               
+        APCB_Passenger aPCB_Passenger = new APCB_Passenger();
+        aPCB_Passenger.putPassengersDetail(passengerDetailADT.toArray(new APCB_PassengerDetail[passengerDetailADT.size()]));
+     
+        for (APCB_PassengerDetail passengerDetail : aPCB_Passenger.getPassengersDetail()) {
+          System.out.println(passengerDetail);  
+        }
     }
-    */
 }

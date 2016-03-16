@@ -12,23 +12,27 @@ package com.apcb.utils.paymentHandler.enums;
  */
 public enum PaymentTypeEnum {
     
-    Efectivo ("1", "Cash"),
-    TarjetaCredito ("5", "Credit Card"),
-    TarjetaDebito ("6", "Debit Card"), 
-    Invoice ("34", "Invoice"),
-    Miscellaneous ("37", "Miscellaneous"),
-    Know ("0","Know");
+    Efectivo ("1", "Cash", "0"),
+    TarjetaCredito ("5", "Credit Card", "1"),
+    TarjetaDebito ("6", "Debit Card", "2"),
+    Invoice ("34", "Invoice", "0"),
+    Miscellaneous ("37", "Miscellaneous", "0"),
+    Know ("0","Know", "0");
     
     private final String code; 
+    private final String codeAlternative; 
     private final String description; 
  
-    PaymentTypeEnum (String code, String description) { 
+    PaymentTypeEnum (String code, String description, String codeAlternative) { 
         this.code = code;
         this.description = description;
+        this.codeAlternative = codeAlternative;
     }
     
     public String getCode() { return code; }
     public String getDescription() { return description; }
+    public String getCodeAlternative() { return codeAlternative; }
+    
     
     public static String getDescriptionByCode(String code){
         for (PaymentTypeEnum mealCodeEnum: PaymentTypeEnum.values()){

@@ -22,11 +22,14 @@ public enum MessagesTypeEnum {
     //VALIDATION ERRORS
     ErrorValidate_DateFormatIncorrect ("801", "Error Validate DateFormat Incorrect"),
     ErrorValidate_ObjectPayMain       ("802", "Error Validate Object PayMain"),
+    ErrorValidate_NoItineraryOptionsAvailable ("803", "Error Validate No Itinerary Options Available"),
+    ErrorValidate_CostOrDisponibility ("804", "Error Validate Cost Or Disponibility"),
         
     //Error access to services
     
     ErrorAccess_Business            ("601", "Errot to access to service Business"),
-    ErrorAccess_TicketsHandler      ("602", "Errot to access to service TicketsHandler"), 
+    ErrorAccess_TicketsHandler      ("602", "Errot to access to service TicketsHandler"),
+    ErrorAccess_PaymentHandler      ("603", "Errot to access to service PaymentHandler"),
     
      //Error access to External services
     

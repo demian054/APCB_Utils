@@ -7,6 +7,7 @@
 package com.apcb.utils.ticketsHandler.entities;
 
 import com.apcb.utils.ticketsHandler.enums.PassangerTypeEnum;
+import com.apcb.utils.utils.ArrayUtils;
 
 /**
  *
@@ -50,6 +51,21 @@ public class APCB_Passenger {
         this.passengersDetail = passengersDetail;
     }
     
+    public void putPassengersDetail(APCB_PassengerDetail[] passengersDetail) {
+         try {
+            this.passengersDetail =  ArrayUtils.concat(this.passengersDetail, passengersDetail, APCB_PassengerDetail.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
+    }
+    
+    public void putPassengersDetail(APCB_PassengerDetail passengersDetail) {
+         try {
+            this.passengersDetail =  ArrayUtils.concat(this.passengersDetail, passengersDetail, APCB_PassengerDetail.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } 
+    }
     
     
     

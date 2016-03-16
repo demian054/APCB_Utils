@@ -8,6 +8,7 @@ package com.apcb.utils.paymentHandler.entities;
 
 
 import com.apcb.utils.entities.Request;
+import com.apcb.utils.paymentHandler.enums.CardEmisorEnum;
 import com.apcb.utils.paymentHandler.enums.PaymentTypeEnum;
 import com.apcb.utils.paymentHandler.enums.StatusIdEnum;
 import com.google.gson.Gson;
@@ -27,7 +28,7 @@ public class APCB_PayMain {
     private Double Amount;// (Requerido): Monto a Debitar, utilizando punto “.” como separador decimal. Por ejemplo: 200.00.
     private String Description;// (Requerido): Cadena de caracteres con la descripción de la operación.
     private String CardHolder;// (Requerido): Nombre del Tarjeta habiente.
-    private Integer CardHolderID;// (Requerido): Cédula del Tarjeta habiente.
+    private String CardHolderID;// (Requerido): Cédula del Tarjeta habiente.
     private Long CardNumber;// (Requerido): Numero de la tarjeta de crédito, sin espacios ni separadores.
     private Integer CVC;// (Requerido): Código secreto de la Tarjeta de crédito.
     private String ExpirationDate;// (Requerido): Fecha de expiración de la tarjeta en el formato mostrado en la misma MM/YYYY. Por Ejemplo: 10/2014.
@@ -43,6 +44,7 @@ public class APCB_PayMain {
 
     private Double SubTotalAmount;
     private Double TaxesAmount;
+    private CardEmisorEnum cardEmisor;
     
     public APCB_PayMain() {}
     
@@ -90,11 +92,11 @@ public class APCB_PayMain {
         this.CardHolder = CardHolder;
     }
 
-    public Integer getCardHolderID() {
+    public String getCardHolderID() {
         return CardHolderID;
     }
 
-    public void setCardHolderID(Integer CardHolderID) {
+    public void setCardHolderID(String CardHolderID) {
         this.CardHolderID = CardHolderID;
     }
 
@@ -185,8 +187,14 @@ public class APCB_PayMain {
     public void setPaymentType(PaymentTypeEnum PaymentType) {
         this.PaymentType = PaymentType;
     }
-    
-    
+
+    public CardEmisorEnum getCardEmisor() {
+        return cardEmisor;
+    }
+
+    public void setCardEmisor(CardEmisorEnum cardEmisor) {
+        this.cardEmisor = cardEmisor;
+    }
     
     public String toString(){
         StringBuilder retBuilder = new StringBuilder("");

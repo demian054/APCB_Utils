@@ -18,7 +18,6 @@ public class APCB_Itinerary {
     private Calendar departureDateTime;
     private LocationEnum originLocationCode;    
     private LocationEnum destinationLocationCode;
-
     private APCB_ItineraryOption[] itineraryOption;
 
     public Calendar getDepartureDateTime() {

@@ -27,5 +27,14 @@ public enum PassangerTypeEnum {
     
     public String getCode() { return code; }
     public String getDescription() { return description; }
+    
+    public static PassangerTypeEnum getByCode(String code){
+        for (PassangerTypeEnum passangerTypeEnum:PassangerTypeEnum.values()){
+            if (passangerTypeEnum.getCode().equals(code)){
+                return passangerTypeEnum;
+            }
+        }
+        return null;
+    }
        
 }

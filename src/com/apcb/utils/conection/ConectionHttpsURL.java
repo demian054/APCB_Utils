@@ -52,7 +52,7 @@ public class ConectionHttpsURL {
             int responseCode = 0;
             String responseMsg;
 
-            if (prop.getProperty("Simulate",false).equalsIgnoreCase("false")){
+            if (prop.getProperty("Simulate",false).equalsIgnoreCase("true")){
                 log.info("Simulate Answer" );
                 responseMsg = prop.getProperty("SimulateResponseMsg", false);
             } else {

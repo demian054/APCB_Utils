@@ -31,6 +31,7 @@ public class APCB_ItineraryOption {
     Boolean MealServices;
     String[] MealCode; 
     APCB_Cost totalCost;
+    int BookingAvail; 
 
     public LocationEnum getArrivalLocationCode() {
         return arrivalLocationCode;
@@ -153,6 +154,14 @@ public class APCB_ItineraryOption {
 
     public void setTotalCost(APCB_Cost totalCost) {
         this.totalCost = totalCost;
+    }
+
+    public int getBookingAvail() {
+        return BookingAvail;
+    }
+
+    public void setBookingAvail(int BookingAvail) {
+        this.BookingAvail = BookingAvail;
     }
     
 

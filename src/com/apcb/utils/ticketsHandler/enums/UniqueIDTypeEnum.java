@@ -12,13 +12,15 @@ package com.apcb.utils.ticketsHandler.enums;
  */
 public enum UniqueIDTypeEnum {
     
-    BookingReferenceID ("14"), 
-    TicketNumber ("30");
+    BookingReferenceID ("14", "Booking"), 
+    TicketNumber ("30", "Ticket");
  
     private final String code;
+    private final String description;
  
-    UniqueIDTypeEnum (String code) { 
+    UniqueIDTypeEnum (String code, String description) { 
         this.code = code;
+        this.description = description;
     }
     
     public static UniqueIDTypeEnum getByCode(String code){
@@ -31,5 +33,7 @@ public enum UniqueIDTypeEnum {
     }
     
     public String getCode() { return code; }
+    public String getDescription() { return description; }
+    
    
 }

@@ -20,9 +20,18 @@ public class Response {
     private APCB_Travel travelInfo;
     private String sesionId;
     private Message message;
-    private List<Message> warninig;
+    private Message[] warninig;
     private APCB_PayMain payMainInfo;
 
+    public Response(String sesionId) {
+        this.sesionId = sesionId;
+        this.message = new Message(MessagesTypeEnum.Ok);
+    }
+    
+    /*public Response() {
+        message = new Message(MessagesTypeEnum.Ok);
+    }*/
+    
     public APCB_Travel getTravelInfo() {
         return travelInfo;
     }
@@ -39,9 +48,7 @@ public class Response {
         this.payMainInfo = payMainInfo;
     }
 
-    public Response() {
-        message = new Message(MessagesTypeEnum.Ok);
-    }
+
 
     public String getSesionId() {
         return sesionId;
@@ -58,14 +65,13 @@ public class Response {
     public void setMessage(Message message) {
         this.message = message;
     }
-    
-    public List<Message> getWarninig() {
+
+    public Message[] getWarninig() {
         return warninig;
     }
 
-    public void setWarninig(List<Message> warninig) {
+    public void setWarninig(Message[] warninig) {
         this.warninig = warninig;
     }
-
  
 }

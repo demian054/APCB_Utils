@@ -8,8 +8,10 @@ package com.apcb.utils.entities;
 
 import com.apcb.utils.paymentHandler.entities.APCB_PayMain;
 import com.apcb.utils.ticketsHandler.entities.APCB_Travel;
+import com.apcb.utils.ticketsHandler.enums.MessagesTypeEnum;
 import com.google.gson.Gson;
 import java.util.List;
+import org.apache.log4j.MDC;
 
 /**
  *
@@ -27,6 +29,7 @@ public class Request {
     
     public Request(String strRequest) {
         fromString(strRequest);
+        MDC.put("sessionId", sesionId);
     }
 
     public APCB_Travel getTravelInfo() {

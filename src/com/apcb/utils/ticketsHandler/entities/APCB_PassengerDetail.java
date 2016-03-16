@@ -6,6 +6,7 @@
 
 package com.apcb.utils.ticketsHandler.entities;
 
+import com.apcb.utils.enums.TimeTypeEnum;
 import com.apcb.utils.enums.DocumentTypeEnum;
 
 /**
@@ -16,11 +17,15 @@ public class APCB_PassengerDetail {
     private String name;
     private String surname;
     private String telephone;
+    private String telephoneHome;
     private String email;
     private String documentID;
     private DocumentTypeEnum documentType;
     private String custLoyaltyProgramID;   
     private String custLoyaltyMembershipID;
+    private String documentNationality;
+    private String age;
+    private TimeTypeEnum ageType;
 
     public String getName() {
         return name;
@@ -85,7 +90,37 @@ public class APCB_PassengerDetail {
     public void setCustLoyaltyMembershipID(String custLoyaltyMembershipID) {
         this.custLoyaltyMembershipID = custLoyaltyMembershipID;
     }
-    
-    
+
+    public String getDocumentNationality() {
+        return documentNationality;
+    }
+
+    public void setDocumentNationality(String documentNationality) {
+        this.documentNationality = documentNationality;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public TimeTypeEnum getAgeType() {
+        return ageType;
+    }
+
+    public void setAgeType(TimeTypeEnum ageType) {
+        this.ageType = ageType;
+    }
+
+    public String getTelephoneHome() {
+        return telephoneHome;
+    }
+
+    public void setTelephoneHome(String telephoneHome) {
+        this.telephoneHome = telephoneHome;
+    }
     
 }

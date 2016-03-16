@@ -6,32 +6,31 @@
 
 package com.apcb.utils.enums;
 
-import com.apcb.utils.ticketsHandler.enums.PassangerTypeEnum;
-
 /**
  *
  * @author Demian
  */
-public enum DocumentTypeEnum {
-    
-    Cedula         ("NI"),
-    Pasaporte      ("PP");
+public enum TimeTypeEnum {
+      
+    Meses         ("M"),
+    Años          ("Y");
     
     private final String code; 
  
-    DocumentTypeEnum (String description) { 
+    TimeTypeEnum (String description) { 
         this.code = description;
     }
 
     public String getCode() { return code; }
     
-    public static DocumentTypeEnum getByCode(String code){
-        for (DocumentTypeEnum documentTypeEnum:DocumentTypeEnum.values()){
-            if (documentTypeEnum.getCode().equals(code)){
-                return documentTypeEnum;
+    public static TimeTypeEnum getByCode(String code){
+        for (TimeTypeEnum timeTypeEnum:TimeTypeEnum.values()){
+            if (timeTypeEnum.getCode().equals(code)){
+                return timeTypeEnum;
             }
         }
         return null;
     }
+    
     
 }
