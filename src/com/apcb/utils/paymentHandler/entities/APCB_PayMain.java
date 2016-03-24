@@ -45,6 +45,7 @@ public class APCB_PayMain {
     private Double SubTotalAmount;
     private Double TaxesAmount;
     private CardEmisorEnum cardEmisor;
+    private String EmailPayer;
     
     public APCB_PayMain() {}
     
@@ -245,6 +246,12 @@ public class APCB_PayMain {
         this.City = request.getCity(); 
         this.ZipCode = request.getZipCode();
         this.State = request.getState();
+        this.SubTotalAmount = getSubTotalAmount();
+        this.TaxesAmount = getTaxesAmount();
+        this.cardEmisor = getCardEmisor();
+        this.EmailPayer = getEmailPayer();
+        
+        
     }
      
     private boolean success; 
@@ -334,6 +341,14 @@ public class APCB_PayMain {
 
     public void setTaxesAmount(Double TaxesAmount) {
         this.TaxesAmount = TaxesAmount;
+    }
+
+    public String getEmailPayer() {
+        return EmailPayer;
+    }
+
+    public void setEmailPayer(String EmailPayer) {
+        this.EmailPayer = EmailPayer;
     }
      
      

@@ -14,8 +14,10 @@ import com.apcb.utils.enums.DocumentTypeEnum;
  * @author Demian
  */
 public class APCB_PassengerDetail {
+    private NamePrefixTypeEnum namePrefix;
     private String name;
     private String surname;
+    private String middleName;
     private String telephone;
     private String telephoneHome;
     private String email;
@@ -122,5 +124,22 @@ public class APCB_PassengerDetail {
     public void setTelephoneHome(String telephoneHome) {
         this.telephoneHome = telephoneHome;
     }
+
+    public NamePrefixTypeEnum getNamePrefix() {
+        return namePrefix;
+    }
+
+    public void setNamePrefix(NamePrefixTypeEnum namePrefix) {
+        this.namePrefix = namePrefix;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+    
     
 }

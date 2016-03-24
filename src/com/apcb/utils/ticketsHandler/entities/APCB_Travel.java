@@ -16,7 +16,7 @@ import com.apcb.utils.utils.ArrayUtils;
  */
 public class APCB_Travel {
 
-    Integer transactionId;
+    String transactionId;
     CabinTypeEnum Cabin;
     boolean DirectFlightsOnly;
     APCB_Passenger[] passangers; 
@@ -28,12 +28,15 @@ public class APCB_Travel {
     String ticketNumber;
     String ticket;
     Integer TicketTimeLimit;
+    
+    String qRCode;
+    String pdfLink;
             
-    public Integer getTransactionId() {
+    public String getTransactionId() {
         return transactionId;
     }
 
-    public void setTransactionId(Integer transactionId) {
+    public void setTransactionId(String transactionId) {
         this.transactionId = transactionId;
     }
     
@@ -135,6 +138,22 @@ public class APCB_Travel {
 
     public void setTicket(String ticket) {
         this.ticket = ticket;
+    }
+
+    public String getqRCode() {
+        return qRCode;
+    }
+
+    public void setqRCode(String qRCode) {
+        this.qRCode = qRCode;
+    }
+
+    public String getPdfLink() {
+        return pdfLink;
+    }
+
+    public void setPdfLink(String pdfLink) {
+        this.pdfLink = pdfLink;
     }
     
     
