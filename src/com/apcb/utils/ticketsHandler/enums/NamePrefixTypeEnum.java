@@ -1,4 +1,4 @@
-package com.apcb.utils.ticketsHandler.entities;
+package com.apcb.utils.ticketsHandler.enums;
 
 /**
  *
@@ -9,7 +9,8 @@ public enum NamePrefixTypeEnum {
     MR       ("MR"),
     MRS      ("MRS"),
     MSS      ("MSS"),
-    JR       ("JR");
+    JR       ("JR"),
+    KNOW     ("KNOW");
     
     private final String code; 
  
@@ -25,7 +26,7 @@ public enum NamePrefixTypeEnum {
                 return namePrefixTypeEnum;
             }
         }
-        return null;
+        return NamePrefixTypeEnum.KNOW;
     }
     
 }

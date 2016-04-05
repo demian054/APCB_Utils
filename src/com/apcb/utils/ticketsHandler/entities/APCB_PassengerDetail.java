@@ -6,6 +6,7 @@
 
 package com.apcb.utils.ticketsHandler.entities;
 
+import com.apcb.utils.ticketsHandler.enums.NamePrefixTypeEnum;
 import com.apcb.utils.enums.TimeTypeEnum;
 import com.apcb.utils.enums.DocumentTypeEnum;
 
@@ -28,6 +29,10 @@ public class APCB_PassengerDetail {
     private String documentNationality;
     private String age;
     private TimeTypeEnum ageType;
+    
+    private String ticketNumber;
+    private String ticket;
+    private APCB_Cost detailCost;
 
     public String getName() {
         return name;
@@ -140,6 +145,49 @@ public class APCB_PassengerDetail {
     public void setMiddleName(String middleName) {
         this.middleName = middleName;
     }
+    
+    public String getTicketNumber() {
+        return ticketNumber;
+    }
+
+    public void setTicketNumber(String ticketNumber) {
+        this.ticketNumber = ticketNumber;
+    }
+
+    public String getTicket() {
+        return ticket;
+    }
+
+    public void setTicket(String ticket) {
+        this.ticket = ticket;
+    }
+    
+    public APCB_Cost getDetailCost() {
+        return detailCost;
+    }
+
+    public void setDetailCost(APCB_Cost detailCost) {
+        this.detailCost = detailCost;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        //if (obj.getClass().isInstance(APCB_PassengerDetail.class)){
+        try {
+            APCB_PassengerDetail aPCB_PassengerDetail = (APCB_PassengerDetail) obj;
+            if (aPCB_PassengerDetail.getName().equalsIgnoreCase(this.getName())
+                && (aPCB_PassengerDetail.getMiddleName() == null || aPCB_PassengerDetail.getMiddleName().equalsIgnoreCase(this.getMiddleName()))
+                && aPCB_PassengerDetail.getSurname().equalsIgnoreCase(this.getSurname())
+                && (aPCB_PassengerDetail.getNamePrefix() == null || aPCB_PassengerDetail.getNamePrefix().equals(this.getNamePrefix()))){
+                return true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    
     
     
 }

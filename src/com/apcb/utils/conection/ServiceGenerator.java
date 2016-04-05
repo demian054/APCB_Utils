@@ -10,15 +10,16 @@ import com.apcb.utils.utils.PropertiesReader;
 import java.net.URL;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 
 /**
  *
  * @author Demian
  */
 public class ServiceGenerator {
-    private static final Logger logger = LogManager.getLogger(ServiceGenerator.class);
+    private static Logger log = LogManager.getLogger(ServiceGenerator.class);
     
     
     public static <T> T ServiceGenerator(Class<T> ServiceName) throws Exception {
@@ -34,7 +35,7 @@ public class ServiceGenerator {
             return service.getPort(ServiceName);    
 
         } catch (Exception e) {
-           logger.error("Error Conectando a servicio "+ServiceName.getSimpleName(), e);
+           log.error("Error Conectando a servicio "+ServiceName.getSimpleName(), e);
         }
         return null;
     }

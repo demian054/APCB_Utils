@@ -10,19 +10,22 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  *
  * @author Demian
  */
 public class DateParser {
-     private final static Logger log = Logger.getLogger(DateParser.class);
+    private static Logger log = LogManager.getLogger(DateParser.class);
     
      public static String toDateSring(Calendar date, PropertiesReader prop, String Format) {
         try {
             DateFormat df = new SimpleDateFormat(prop.getProperty(Format, false));
-            return df.format(date.getTime());
+            String strDate = df.format(date.getTime()); 
+            log.info("strDate Out "+strDate);
+            return strDate;
         } catch (Exception e) {
             log.error("Error toDateString : " + Format, e);
         }
@@ -33,6 +36,7 @@ public class DateParser {
         Calendar date = new GregorianCalendar();
         if (!strDate.isEmpty()) {
             try {
+                log.info("strDate in "+strDate);
                 DateFormat df = new SimpleDateFormat(prop.getProperty(Format, false));
                 date.setTime(df.parse(strDate));
                 return date;

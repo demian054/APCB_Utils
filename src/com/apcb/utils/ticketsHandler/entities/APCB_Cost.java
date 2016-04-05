@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class APCB_Cost {
     private double totalAmount;
+    private double baseAmount;
     private String currencyCode;
     private List<APCB_Tax> taxes; 
 
@@ -40,6 +41,14 @@ public class APCB_Cost {
 
     public void setTaxes(List<APCB_Tax> taxes) {
         this.taxes = taxes;
+    }
+
+    public double getBaseAmount() {
+        return baseAmount;
+    }
+
+    public void setBaseAmount(double baseAmount) {
+        this.baseAmount = baseAmount;
     }
     
     

@@ -15,11 +15,13 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
-import org.apache.log4j.Logger;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ConectionHttpsURL {
 
-        private final static Logger log = Logger.getLogger(ConectionHttpsURL.class);
+    private Logger log = LogManager.getLogger(ConectionHttpsURL.class);
 	private final String USER_AGENT = "Mozilla/5.0";
         private PropertiesReader prop; 
 

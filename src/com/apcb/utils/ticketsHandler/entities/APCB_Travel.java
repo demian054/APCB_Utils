@@ -25,9 +25,8 @@ public class APCB_Travel {
     
     
     String bookingReferenceID;
-    String ticketNumber;
-    String ticket;
     Integer TicketTimeLimit;
+    String booking;
     
     String qRCode;
     String pdfLink;
@@ -116,14 +115,6 @@ public class APCB_Travel {
         this.bookingReferenceID = bookingReferenceID;
     }
 
-    public String getTicketNumber() {
-        return ticketNumber;
-    }
-
-    public void setTicketNumber(String ticketNumber) {
-        this.ticketNumber = ticketNumber;
-    }
-
     public Integer getTicketTimeLimit() {
         return TicketTimeLimit;
     }
@@ -131,15 +122,7 @@ public class APCB_Travel {
     public void setTicketTimeLimit(Integer TicketTimeLimit) {
         this.TicketTimeLimit = TicketTimeLimit;
     }
-
-    public String getTicket() {
-        return ticket;
-    }
-
-    public void setTicket(String ticket) {
-        this.ticket = ticket;
-    }
-
+    
     public String getqRCode() {
         return qRCode;
     }
@@ -154,6 +137,14 @@ public class APCB_Travel {
 
     public void setPdfLink(String pdfLink) {
         this.pdfLink = pdfLink;
+    }
+
+    public String getBooking() {
+        return booking;
+    }
+
+    public void setBooking(String booking) {
+        this.booking = booking;
     }
     
     

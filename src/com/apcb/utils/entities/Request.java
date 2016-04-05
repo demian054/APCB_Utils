@@ -9,7 +9,7 @@ package com.apcb.utils.entities;
 import com.apcb.utils.paymentHandler.entities.APCB_PayMain;
 import com.apcb.utils.ticketsHandler.entities.APCB_Travel;
 import com.google.gson.Gson;
-import org.apache.log4j.MDC;
+import org.apache.logging.log4j.ThreadContext;
 
 /**
  *
@@ -27,7 +27,10 @@ public class Request {
     
     public Request(String strRequest) {
         fromString(strRequest);
-        MDC.put("sessionId", sesionId);
+        ThreadContext.put("sessionId", sesionId);
+        if (payMainInfo!=null){
+            ThreadContext.put("sessionIP", payMainInfo.getIP());
+        }
     }
 
     public APCB_Travel getTravelInfo() {

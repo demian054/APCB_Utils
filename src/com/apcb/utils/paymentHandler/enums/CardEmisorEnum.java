@@ -13,8 +13,8 @@ package com.apcb.utils.paymentHandler.enums;
 public enum CardEmisorEnum {
     
     Visa  ("VI","Visa"),
-    MasterCard  ("MA","MasterCard"), 
-    AmericanExpress  ("AM","AmericanExpress"), 
+    MasterCard  ("IK","MasterCard"), 
+    AmericanExpress  ("AX","AmericanExpress"), 
     Know ("KN","Know");
     
     private final String code; 

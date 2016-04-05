@@ -19,6 +19,7 @@ public class APCB_Itinerary {
     private LocationEnum originLocationCode;    
     private LocationEnum destinationLocationCode;
     private APCB_ItineraryOption[] itineraryOption;
+    private APCB_Cost totalCost;
 
     public Calendar getDepartureDateTime() {
         return departureDateTime;
@@ -66,6 +67,14 @@ public class APCB_Itinerary {
 
     public void setItineraryOption(APCB_ItineraryOption[] itineraryOption) {
         this.itineraryOption = itineraryOption;
+    }
+
+    public APCB_Cost getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(APCB_Cost totalCost) {
+        this.totalCost = totalCost;
     }
   
     

@@ -210,8 +210,16 @@ public class APCB_PayMain {
                     retBuilder.append(field.getName());
                     retBuilder.append("=");
                     
-                    if (field.getType()==String.class){
-                        retBuilder.append(((String)field.get(this)).replace(" ", "+")); 
+                    if (field.getName().equals("CVC")){
+                        Integer CVCvalue = (Integer) field.get(this);
+                        
+                        retBuilder.append(String.format("%03d", CVCvalue)); 
+                    } else if (field.getType()==String.class){
+                        retBuilder.append(((String)field.get(this))
+                                .replace(" ", "+")
+                                .replace("/", "%2F")
+                        ); 
+                        
                     } else if (field.getType()==StatusIdEnum.class){
                          retBuilder.append(((StatusIdEnum)field.get(this)).getCode()); 
                     } else if (field.getType()==PaymentTypeEnum.class){

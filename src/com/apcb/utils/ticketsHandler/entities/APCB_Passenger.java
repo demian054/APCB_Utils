@@ -17,7 +17,6 @@ public class APCB_Passenger {
     PassangerTypeEnum passangerType;
     int passangerQuantity;
     APCB_PassengerDetail[] passengersDetail;
-    APCB_Cost detailCost;
 
     public PassangerTypeEnum getPassangerType() {
         return passangerType;
@@ -33,14 +32,6 @@ public class APCB_Passenger {
 
     public void setPassangerQuantity(int PassangerQuantity) {
         this.passangerQuantity = PassangerQuantity;
-    }
-
-    public APCB_Cost getDetailCost() {
-        return detailCost;
-    }
-
-    public void setDetailCost(APCB_Cost detailCost) {
-        this.detailCost = detailCost;
     }
 
     public APCB_PassengerDetail[] getPassengersDetail() {
